@@ -63,8 +63,9 @@
   .eyebrow{font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:var(--tracking-mono);
     text-transform:uppercase;color:var(--accent);margin-bottom:16px}
   .hero{display:grid;grid-template-columns:1fr 0.92fr;gap:48px;align-items:center}
-  h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,4.6vw,54px);line-height:1.04;
-    letter-spacing:var(--tracking-tight);max-width:16ch;margin-bottom:20px;color:var(--fg-1)}
+  h1{font-family:var(--font-display);font-weight:500;font-size:clamp(30px,3.5vw,40px);line-height:1.1;
+    letter-spacing:var(--tracking-tight);max-width:24ch;margin-bottom:20px;color:var(--fg-1);text-wrap:balance}
+  h1 br{display:inline}
   .tag{font-size:clamp(16px,2.1vw,19px);color:var(--fg-2);max-width:54ch;margin-bottom:14px}
   .hook{font-size:15px;color:var(--fg-3);max-width:56ch;margin-bottom:26px}
   .cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
@@ -233,12 +234,12 @@
     <div class="eyebrow">Production to support, the handoff that decides the next ticket</div>
     <div class="hero">
       <div class="hero-copy">
-        <h1>The acceptance gate for site documentation.</h1>
+        <h1>The acceptance gate<br>for site documentation.</h1>
         <p class="tag">It reviews a finished smart-home site doc and decides whether support can actually service the client from what is written.</p>
         <p class="hook">It clears the doc, or sends it back to the tech who owns the gap. It never invents a value, never rubber-stamps to be agreeable, and never lands the rework on you.</p>
         <div class="cta">
           <a class="btn primary" href="https://github.com/fastedd27/marshal">View on GitHub</a>
-          <a class="btn ghost" href="#proof">See it work</a>
+          <a class="btn ghost" href="#try">Try it in 60 seconds</a>
         </div>
         <div class="trust"><span>Local-first folder</span><span>No rubber-stamps</span><span>Routes back to the tech</span></div>
       </div>
@@ -364,7 +365,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="try">
     <div class="eyebrow">Try it in 60 seconds</div>
     <h2>Drop the folder in, paste a doc, ask.</h2>
     <div class="steps">
