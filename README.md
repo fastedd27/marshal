@@ -27,9 +27,9 @@ It clears a finished site doc, or sends it back to the tech who owns the gap. It
 
 ## For judges: run it in 2 minutes
 
-1. Open this repo in **Claude** (best for the photo step), or paste the files in as context.
-2. **Text, both directions.** Paste [`sample-run/sample-site-doc.md`](sample-run/sample-site-doc.md) and ask *"Run Marshal on this doc."* → expect **RETURN TO TECH** with a punch list. Then paste [`sample-run/sample-site-doc-corrected.md`](sample-run/sample-site-doc-corrected.md) → expect **ACCEPTED**, no invented nits.
-3. **The photo catch (run this one).** Paste [`sample-run/photo-catch-input.md`](sample-run/photo-catch-input.md) and attach [`sample-run/photo-catch-rack-photo.jpg`](sample-run/photo-catch-rack-photo.jpg), then ask *"Run Marshal."* → Marshal reads the rack photo, sees the labeled **NVR** the form marked **N/A**, and returns **RETURN TO TECH**. The form denied a system; the photo caught it. That is the part nobody else does.
+1. **Load the whole folder.** Drop `marshal/` into a Claude Project, or paste all its files in as context. The folder *is* the specialist; the samples below are just inputs you hand it. (Load the whole thing: if the `reference/` tables are missing, Marshal will stop and ask for them rather than guess.)
+2. **Run the gate, both directions.** Give Marshal [`sample-run/sample-site-doc.md`](sample-run/sample-site-doc.md) and say *"Run Marshal on this doc."* → **RETURN TO TECH** with a punch list. Then give it [`sample-run/sample-site-doc-corrected.md`](sample-run/sample-site-doc-corrected.md) → **ACCEPTED**, no invented nits.
+3. **The photo catch (run this one).** Give Marshal [`sample-run/photo-catch-input.md`](sample-run/photo-catch-input.md) with [`sample-run/photo-catch-rack-photo.jpg`](sample-run/photo-catch-rack-photo.jpg) attached. → It reads the rack photo, sees the labeled **NVR** the form marked **N/A**, and returns **RETURN TO TECH**. The form denied a system; the photo caught it. That is the part nobody else does.
 
 ---
 
