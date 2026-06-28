@@ -125,11 +125,13 @@
   .gatebox .gbfoot button:hover{border-color:var(--accent-line);color:var(--gold-logo)}
 
   /* bull band */
-  .bullband{margin:46px 0 8px;border-radius:var(--radius-2xl);overflow:hidden;position:relative;border:1px solid var(--accent-line);
-    box-shadow:0 22px 60px rgba(0,0,0,.5)}
-  .bullband img{width:100%;height:auto;display:block}
-  .bullband .cap{position:absolute;left:0;right:0;bottom:0;padding:38px 28px 20px;
-    background:linear-gradient(0deg,rgba(8,6,3,.86),transparent);font-family:var(--font-display);font-size:clamp(18px,2.4vw,24px);color:var(--fg-1)}
+  .bullband{margin:40px 0 8px;border-radius:var(--radius-2xl);border:1px solid var(--accent-line);
+    background:linear-gradient(180deg,var(--bg-surface-2),var(--bg-surface));box-shadow:inset 0 0 70px var(--accent-wash);
+    padding:24px 24px 22px;text-align:center}
+  .bullband img{width:100%;max-width:700px;height:auto;display:block;margin:0 auto;
+    border-radius:var(--radius-xl);border:1px solid var(--line-2)}
+  .bullband .cap{margin:18px auto 2px;max-width:54ch;font-family:var(--font-display);
+    font-size:clamp(17px,2.1vw,22px);line-height:1.4;color:var(--fg-2)}
   .bullband .cap b{color:var(--accent);font-weight:600}
 
   /* sections */
@@ -276,7 +278,7 @@
 
     <div class="bullband">
       <img src="assets/banner.png" alt="Marshal the gatekeeper holding back a charging bull at a gate marked Support Ready Only">
-      <div class="cap">Nothing half-finished gets through the gate. <b>That is the whole job.</b></div>
+      <div class="cap">If support cannot service it from what is written, it does not get through. <b>That is the whole job.</b></div>
     </div>
   </header>
 
