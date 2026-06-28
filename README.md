@@ -56,11 +56,14 @@ marshal/
 │  ├─ contradiction-checks.md      # consistency checks across the doc
 │  ├─ support-advisories.md        # heads-ups that ride along on ACCEPT
 │  └─ _template/                   # fill-in kit for your own handoff
-├─ sample-run/         # a full before/after you can run right now
-│  ├─ sample-site-doc.md             # gapped   ->  RETURN TO TECH
-│  ├─ sample-output.md               #             the verdict it returned
-│  ├─ sample-site-doc-corrected.md   # fixed     ->  ACCEPTED
-│  └─ sample-output-corrected.md     #             cleared for handoff
+├─ sample-run/         # full before/after runs you can replay
+│  ├─ sample-site-doc.md              # gapped  -> RETURN TO TECH
+│  ├─ sample-output.md                #            the verdict returned
+│  ├─ sample-site-doc-corrected.md    # fixed   -> ACCEPTED
+│  ├─ sample-output-corrected.md      #            cleared for handoff
+│  ├─ photo-catch-input.md            # Cameras N/A, but the photo shows an NVR
+│  ├─ photo-catch-rack-photo.jpg      # the marked-up rack photo
+│  └─ photo-catch-output.md           # -> RETURN: the photo caught it
 └─ docs/               # the landing site (GitHub Pages)
 ```
 
