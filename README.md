@@ -90,7 +90,7 @@ The part nobody else does: it reads the marked-up rack and closet photos, pins t
 
 ## Make it yours
 
-The decision logic in `rules.md` is domain-agnostic. The only domain-specific layer is `reference/`. To run Marshal on your own handoff:
+The engine in `rules.md` (its order of operations and the three verdicts) is domain-agnostic; the specifics it checks (the front door, the per-subsystem fields) live in `reference/`. To run Marshal on your own handoff:
 
 1. Read `PATTERN.md` and confirm your handoff fits the four conditions.
 2. Copy `reference/_template/` and fill in three things: the items that can be present, the must-have fields each one needs for your downstream party, and your front door (the gating prerequisite).
