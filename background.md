@@ -26,7 +26,7 @@ installs from my own work, scrubbed: invented client names and addresses, fake r
 details and credentials, but real gear, real zones, and real gaps. I ran the finished folder
 against them as a blank-slate reviewer and stress-tested it both directions: a gapped doc has to
 bounce, and a corrected doc has to pass without the reviewer inventing new problems. The
-before-and-after pair in `examples/` is that test, left in so anyone can re-run it.
+before-and-after pair in `sample-run/` is that test, left in so anyone can re-run it.
 
 I am not chasing a prize. I am shipping a tool I need, that a peer in my industry needs, scoped and
 proven on a deadline. The competition gave me the deadline. The prize, if it comes, is a bonus.

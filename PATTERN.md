@@ -83,7 +83,7 @@ complete and consistent. It does not tell you the install, the diagnosis, or the
    must-have fields each one needs for your downstream party, and your front door (the gating
    prerequisite).
 3. **Keep `rules.md` as is.** The engine does not change; only your reference tables do.
-4. **Use Marshal as your worked example.** Its `reference/` and `examples/` show exactly what a
+4. **Use Marshal as your worked example.** Its `reference/` and `sample-run/` show exactly what a
    filled-in, stress-tested instance looks like.
 
 That is the whole move: the logic is fixed, the reference is yours.
