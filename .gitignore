@@ -1,0 +1,10 @@
+# Working / internal files — not part of the public repo
+marshal-demo.html
+_MARSHAL-MORNING-PLAN.md
+*.local.md
+*.local.html
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
