@@ -25,6 +25,14 @@ It clears a finished site doc, or sends it back to the tech who owns the gap. It
 
 > **Judges, start here:** the 250-word client brief is **[`brief.md`](brief.md)**, at the repo root. The folder that solves it is everything below.
 
+## For judges: run it in 2 minutes
+
+1. Open this repo in **Claude** (best for the photo step), or paste the files in as context.
+2. **Text, both directions.** Paste [`sample-run/sample-site-doc.md`](sample-run/sample-site-doc.md) and ask *"Run Marshal on this doc."* → expect **RETURN TO TECH** with a punch list. Then paste [`sample-run/sample-site-doc-corrected.md`](sample-run/sample-site-doc-corrected.md) → expect **ACCEPTED**, no invented nits.
+3. **The photo catch (run this one).** Paste [`sample-run/photo-catch-input.md`](sample-run/photo-catch-input.md) and attach [`sample-run/photo-catch-rack-photo.jpg`](sample-run/photo-catch-rack-photo.jpg), then ask *"Run Marshal."* → Marshal reads the rack photo, sees the labeled **NVR** the form marked **N/A**, and returns **RETURN TO TECH**. The form denied a system; the photo caught it. That is the part nobody else does.
+
+---
+
 Marshal reviews a finished site document at the moment it leaves the install team for support. It decides whether support can actually service the client from what is written, returns a precise punch list for anything missing, and clears the doc only when it is genuinely service-ready. It is the gate, so nothing half-finished slips through to surface later as the first support ticket.
 
 It is not an app. It is a folder of interpretable context you drop into any AI assistant.

@@ -63,21 +63,30 @@ first-pass completeness signal (a low ratio is an immediate yellow flag), never 
 task can be marked done with thin data. The per-subsystem support-readiness checks below are what
 actually decide.
 
+**Reference tables must be in context.** The per-subsystem support-critical fields, the
+contradiction checks, and the advisories live in `reference/`. If those files are not present in
+your context, STOP and ask for them before judging. Do not reconstruct the criteria from memory or
+training data; a verdict built on guessed criteria is invalid and breaks the never-guess rule.
+
 ---
 
 ## Order of operations (run every time)
 
-### 0. Front door first: can support even get in?
+### 0. Front door first: can the downstream party even get in?
 
-Remote access gates everything. If support cannot reach the site, nothing else matters.
+Remote access gates everything. If support cannot reach the site, nothing else matters. The engine
+checks whatever front-door prerequisite `reference/support-critical-fields.md` ("Access &
+Credentials") defines for the instance; it does not hardcode a vendor or platform.
 
-- **Tier 1 (offsite support desk / OvrC):** the top-of-form attestation **"OvrC devices added and
-  labeled"** must be checked. OvrC device detail lives in the OvrC cloud, not this doc; the
-  checkbox is the tech signing off that it is configured. Unchecked or absent → **RETURN TO
-  TECH** (confirm OvrC and check the box). Blocks ACCEPTED.
-- **Tier 2 (advanced in-house team / VPN + Crestron Home):** where a control system or managed network is present
-  (see §1), the VPN/remote path and CH access must be documented well enough for advanced to
-  get device-level visibility. Missing → **RETURN TO TECH**.
+- **Tier 1 (first-response tier):** the front-door attestation named in `reference/` must be
+  satisfied. Unsatisfied or absent → **RETURN TO TECH**, naming it. Blocks ACCEPTED.
+  *(Marshal's instance: the "OvrC devices added and labeled" checkbox, the tech's sign-off that
+  Tier-1 remote access is configured. OvrC device detail lives in the OvrC cloud, not this doc.)*
+- **Tier 2 (advanced tier):** where a subsystem needs deep remote access (see §1), the documented
+  remote path that `reference/` requires must be present and complete enough to give device-level
+  visibility. Missing → **RETURN TO TECH**.
+  *(Marshal's instance: the VPN method plus Crestron Home reach, required where a control system or
+  managed network is present.)*
 
 ### 1. Establish presence: what is actually on this site?
 
@@ -89,6 +98,10 @@ Do not treat every blank as a gap. Resolve each subsystem to **PRESENT / ABSENT 
   operator **reads these photos** (see Input): it extracts visible brands and models plus the
   markup labels to build a device inventory, taking what is legible and flagging (not guessing)
   what is not.
+- **Illegible or ambiguous labels are not data.** If a label is blurry, obscured, low-resolution,
+  or you cannot read it with confidence, treat it as unreadable: note "confirm in photo" and never
+  infer a brand, model, or contradiction from a guess. A guessed reading is the exact false positive
+  this gate exists to prevent.
 - **Section N/A toggle** = explicit "not present." Trust it. Skip that section.
 - **Section filled** = present.
 - **Rooms = positive signal only.** Filled means AV scope exists. Blank is inconclusive
@@ -126,6 +139,10 @@ reliable checks.
 - A room lists an audio/video source or zone the matrix section never lists.
 
 Contradiction the tech can fix → **RETURN TO TECH** with the specific conflict named.
+
+Raise a photo-versus-form contradiction only from gear you can **confidently** identify in the
+image. An illegible or ambiguous label is never a contradiction; flag it for confirmation instead of
+bouncing the tech on a guess. Confidence first, then the catch.
 
 ### 4. Support-awareness advisories
 
