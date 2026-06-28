@@ -193,6 +193,19 @@
   .feature h2{margin-bottom:10px}
   .feature .lead{font-size:16px}
   .feature img{width:100%;height:auto;display:block;border-radius:var(--radius-xl);border:1px solid var(--line-2)}
+  .rackread{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-xl);overflow:hidden;box-shadow:inset 0 1px 0 var(--line-1)}
+  .rackread .rr-bar{display:flex;align-items:center;justify-content:space-between;padding:11px 15px;border-bottom:1px solid var(--line-2);font-family:var(--font-mono);font-size:11px;color:var(--fg-3);letter-spacing:.04em}
+  .rackread .rr-bar .live{color:var(--accent)}
+  .rackread .rr-body{padding:16px}
+  .rackread svg{width:100%;height:auto;display:block;margin-bottom:14px}
+  .rackread .det{list-style:none;display:grid;gap:9px}
+  .rackread .det li{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;color:var(--fg-2)}
+  .rackread .det .dot{width:8px;height:8px;border-radius:50%;flex:none}
+  .rackread .det .dot.g{background:var(--accent)}
+  .rackread .det .dot.r{background:var(--sem-bad)}
+  .rackread .det .tag{margin-left:auto;font-size:10.5px;letter-spacing:.03em}
+  .rackread .det .tag.ok{color:var(--sem-good)}
+  .rackread .det .tag.flag{color:#f0c3b3}
 
   /* guardrails */
   .never{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
@@ -363,7 +376,38 @@
         <h2>It reads the rack photos.</h2>
         <p class="lead">Techs mark up the rack and closet shots. Marshal reads them, pins the exact gear the form left generic (the processor model behind "Crestron," the named switch behind "UniFi"), and catches anything installed but never written down. The form can be vague. The photo is not.</p>
       </div>
-      <img src="assets/banner.png" alt="Marshal at the gate">
+      <div class="rackread">
+        <div class="rr-bar"><span>reading rack-closet.jpg</span><span class="live">4 devices found</span></div>
+        <div class="rr-body">
+          <svg viewBox="0 0 420 210" role="img" aria-label="A rack-closet photo with gear pinned by Marshal">
+            <rect x="2" y="2" width="416" height="206" rx="10" fill="#100c07" stroke="rgba(217,164,65,0.18)"/>
+            <rect x="150" y="18" width="120" height="174" rx="6" fill="#1c1710" stroke="rgba(242,239,233,0.14)"/>
+            <rect x="158" y="28" width="104" height="30" rx="3" fill="#0e0b06" stroke="rgba(242,239,233,0.12)"/>
+            <rect x="158" y="70" width="104" height="30" rx="3" fill="#0e0b06" stroke="rgba(242,239,233,0.12)"/>
+            <rect x="158" y="112" width="104" height="30" rx="3" fill="#0e0b06" stroke="rgba(242,239,233,0.12)"/>
+            <rect x="158" y="154" width="104" height="30" rx="3" fill="#0e0b06" stroke="rgba(242,239,233,0.12)"/>
+            <rect x="246" y="40" width="6" height="6" rx="1" fill="#849a5a"/>
+            <rect x="246" y="82" width="6" height="6" rx="1" fill="#849a5a"/>
+            <rect x="246" y="124" width="6" height="6" rx="1" fill="#849a5a"/>
+            <rect x="246" y="166" width="6" height="6" rx="1" fill="#a8553a"/>
+            <line x1="262" y1="43" x2="280" y2="43" stroke="#d9a441" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <line x1="262" y1="85" x2="280" y2="85" stroke="#d9a441" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <line x1="262" y1="127" x2="280" y2="127" stroke="#d9a441" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <line x1="262" y1="169" x2="280" y2="169" stroke="#a8553a" stroke-width="1.5" stroke-dasharray="2 2"/>
+            <circle cx="286" cy="43" r="6" fill="#d9a441"/>
+            <circle cx="286" cy="85" r="6" fill="#d9a441"/>
+            <circle cx="286" cy="127" r="6" fill="#d9a441"/>
+            <circle cx="286" cy="169" r="6" fill="#a8553a"/>
+            <rect x="150" y="103" width="120" height="3" fill="#d9a441" opacity="0.45"/>
+          </svg>
+          <ul class="det">
+            <li><span class="dot g"></span> Crestron CP4-R <span class="tag ok">in Control</span></li>
+            <li><span class="dot g"></span> UniFi USW-Pro-24 <span class="tag ok">in Network</span></li>
+            <li><span class="dot g"></span> Uniview NVR301 <span class="tag ok">in Cameras</span></li>
+            <li><span class="dot r"></span> WattBox WB-800 <span class="tag flag">not in the form</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
