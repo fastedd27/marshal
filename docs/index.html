@@ -19,7 +19,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
 <style>
-  /* Spire tokens (night / walnut) — subset, inlined for a self-contained page */
   :root{
     --bg-void:#050402; --bg-base:#15110a; --bg-surface:#1c1710; --bg-surface-2:#241d13; --bg-inset:#0e0b06;
     --line-1:rgba(242,239,233,0.07); --line-2:rgba(242,239,233,0.12); --line-3:rgba(242,239,233,0.19);
@@ -38,30 +37,37 @@
     --tracking-caps:0.22em; --tracking-tight:-0.02em; --tracking-mono:0.16em;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{
     background:
-      radial-gradient(900px 520px at 78% -8%, color-mix(in srgb,var(--accent) 10%,transparent) 0%, transparent 60%),
+      radial-gradient(1100px 600px at 82% -10%, color-mix(in srgb,var(--accent) 11%,transparent) 0%, transparent 58%),
       var(--bg-base);
     color:var(--fg-1);font-family:var(--font-sans);line-height:1.6;-webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
   a{color:inherit}
 
-  /* lockup + hero */
-  header{padding:74px 0 58px}
-  .lockup{display:flex;align-items:center;gap:13px;font-family:var(--font-mono);font-weight:600;
-    font-size:20px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-logo);margin-bottom:42px}
-  .lockup .mk{display:inline-grid;place-items:center;width:26px;height:26px;border:1px solid var(--accent-line);
-    border-radius:var(--radius-sm,5px);color:var(--accent);box-shadow:inset 0 0 12px var(--accent-wash)}
-  .lockup img.mk{width:46px;height:46px;border:0;box-shadow:none;border-radius:10px;object-fit:cover}
-  .hero{display:grid;grid-template-columns:1fr 0.82fr;gap:46px;align-items:center}
-  .hero-art img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--accent-line);
-    box-shadow:0 20px 55px rgba(0,0,0,.5)}
-  h1{font-family:var(--font-display);font-weight:500;font-size:clamp(33px,4.3vw,50px);line-height:1.06;
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:color-mix(in srgb,var(--bg-base) 78%,transparent);border-bottom:1px solid var(--line-1)}
+  nav .navwrap{max-width:1080px;margin:0 auto;padding:12px 28px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-weight:600;font-size:14px;
+    letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-logo)}
+  .brand img{width:30px;height:30px;border-radius:7px;object-fit:cover}
+  .nav-cta{font-family:var(--font-mono);font-size:12.5px;letter-spacing:.06em;text-decoration:none;color:var(--accent-ink);
+    background:var(--accent);padding:9px 16px;border-radius:var(--radius-pill);font-weight:600;border:1px solid var(--accent)}
+  .nav-cta:hover{filter:brightness(1.06)}
+
+  /* hero */
+  header{padding:62px 0 30px}
+  .eyebrow{font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:var(--tracking-mono);
+    text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .hero{display:grid;grid-template-columns:1fr 0.92fr;gap:48px;align-items:center}
+  h1{font-family:var(--font-display);font-weight:500;font-size:clamp(34px,4.6vw,54px);line-height:1.04;
     letter-spacing:var(--tracking-tight);max-width:16ch;margin-bottom:20px;color:var(--fg-1)}
-  .tag{font-size:clamp(17px,2.3vw,21px);color:var(--fg-2);max-width:60ch;margin-bottom:14px}
-  .hook{font-size:16px;color:var(--fg-3);max-width:64ch;margin-bottom:32px}
-  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .tag{font-size:clamp(16px,2.1vw,19px);color:var(--fg-2);max-width:54ch;margin-bottom:14px}
+  .hook{font-size:15px;color:var(--fg-3);max-width:56ch;margin-bottom:26px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
   .btn{display:inline-block;font-weight:600;font-size:15px;padding:13px 22px;border-radius:var(--radius-lg);
     text-decoration:none;border:1px solid var(--line-2);transition:transform .14s,border-color .14s}
   .btn:hover{transform:translateY(-1px)}
@@ -69,62 +75,162 @@
     box-shadow:0 0 0 1px var(--accent-line),inset 0 1px 0 rgba(255,255,255,.18)}
   .btn.ghost{background:var(--bg-surface);color:var(--fg-1)}
   .btn.ghost:hover{border-color:var(--accent-line)}
+  .trust{display:flex;gap:18px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;color:var(--fg-3);letter-spacing:.03em}
+  .trust span{display:inline-flex;align-items:center;gap:7px}
+  .trust span::before{content:'\2713';color:var(--sem-good);font-size:12px}
 
-  section{padding:50px 0;border-top:1px solid var(--line-1)}
-  .eyebrow{font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:var(--tracking-mono);
-    text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-  h2{font-family:var(--font-display);font-weight:500;font-size:clamp(25px,3.6vw,34px);
+  /* animated gate console (scoped under .gatebox) */
+  .gatebox{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-2xl);overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,.5),inset 0 1px 0 var(--line-1)}
+  .gatebox .bar{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;border-bottom:1px solid var(--line-2);
+    font-family:var(--font-mono);font-size:11.5px;color:var(--fg-3);letter-spacing:.04em}
+  .gatebox .dots{display:flex;gap:6px}
+  .gatebox .dots i{width:10px;height:10px;border-radius:50%;background:var(--line-3);display:inline-block}
+  .gatebox .stage{color:var(--accent)}
+  .gatebox .grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .gatebox .pane{padding:18px}
+  .gatebox .pane.doc{border-right:1px solid var(--line-2);position:relative;overflow:hidden}
+  .gatebox .pane h4{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-4);
+    margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+  .gatebox .docstate{color:var(--gold-logo)}
+  .gatebox .row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line-1);font-size:13px}
+  .gatebox .row .nm{color:var(--fg-3);flex:1}
+  .gatebox .row .vl{color:var(--fg-1);font-family:var(--font-mono);font-size:12px;transition:color .4s,opacity .4s}
+  .gatebox .row .vl.blank{color:var(--sem-bad);opacity:.9}
+  .gatebox .row .st{width:8px;height:8px;border-radius:50%;background:var(--sem-good);transition:background .4s}
+  .gatebox .row .st.bad{background:var(--sem-bad)}
+  .gatebox .scan{position:absolute;left:0;right:0;height:46px;top:-60px;
+    background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--accent) 24%,transparent),transparent);
+    opacity:0;pointer-events:none}
+  .gatebox .scan.run{animation:sweep 1.3s ease-in-out}
+  @keyframes sweep{0%{top:-60px;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:100%;opacity:0}}
+  .gatebox .verdict-wrap{min-height:42px;margin-bottom:12px}
+  .gatebox .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-mono);font-weight:600;font-size:12.5px;
+    letter-spacing:.06em;padding:8px 13px;border-radius:var(--radius-pill);opacity:0;transform:translateY(6px);transition:all .45s}
+  .gatebox .chip.show{opacity:1;transform:none}
+  .gatebox .chip.return{color:#f0c3b3;background:var(--sem-bad-bg);border:1px solid color-mix(in srgb,var(--sem-bad) 55%,transparent)}
+  .gatebox .chip.accept{color:#cfe0ad;background:var(--sem-good-bg);border:1px solid color-mix(in srgb,var(--sem-good) 55%,transparent)}
+  .gatebox .chip.thinking{color:var(--fg-3);background:transparent;border:1px dashed var(--line-2);animation:pulse 1.2s infinite}
+  @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+  .gatebox .punch{list-style:none}
+  .gatebox .punch li{font-size:12.5px;color:var(--fg-2);padding:7px 0 7px 22px;position:relative;opacity:0;transform:translateX(-6px);transition:all .4s}
+  .gatebox .punch li.show{opacity:1;transform:none}
+  .gatebox .punch li::before{position:absolute;left:0;top:6px;font-family:var(--font-mono);font-size:12px;content:'\21A9';color:var(--sem-bad)}
+  .gatebox .punch li.adv::before{content:'\2192';color:var(--accent)}
+  .gatebox .punch li.ok::before{content:'\2713';color:var(--sem-good)}
+  .gatebox .gbfoot{text-align:right;padding:10px 18px;border-top:1px solid var(--line-1);font-family:var(--font-mono);font-size:10.5px;color:var(--fg-4);letter-spacing:.06em}
+  .gatebox .gbfoot button{background:none;border:1px solid var(--line-2);color:var(--fg-3);font-family:var(--font-mono);font-size:10.5px;
+    padding:5px 11px;border-radius:7px;cursor:pointer;letter-spacing:.06em}
+  .gatebox .gbfoot button:hover{border-color:var(--accent-line);color:var(--gold-logo)}
+
+  /* bull band */
+  .bullband{margin:46px 0 8px;border-radius:var(--radius-2xl);overflow:hidden;position:relative;border:1px solid var(--accent-line);
+    box-shadow:0 22px 60px rgba(0,0,0,.5)}
+  .bullband img{width:100%;height:auto;display:block}
+  .bullband .cap{position:absolute;left:0;right:0;bottom:0;padding:38px 28px 20px;
+    background:linear-gradient(0deg,rgba(8,6,3,.86),transparent);font-family:var(--font-display);font-size:clamp(18px,2.4vw,24px);color:var(--fg-1)}
+  .bullband .cap b{color:var(--accent);font-weight:600}
+
+  /* sections */
+  section{padding:54px 0;border-top:1px solid var(--line-1)}
+  h2{font-family:var(--font-display);font-weight:500;font-size:clamp(25px,3.4vw,34px);
     letter-spacing:var(--tracking-tight);margin-bottom:14px;color:var(--fg-1)}
-  p.lead{color:var(--fg-2);font-size:17px;max-width:64ch}
+  p.lead{color:var(--fg-2);font-size:17px;max-width:62ch}
 
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-  .step{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-xl);padding:22px;
-    box-shadow:inset 0 1px 0 var(--line-1)}
-  .step .n{font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--accent);margin-bottom:12px;
-    letter-spacing:var(--tracking-mono)}
-  .step h3{font-size:16px;margin-bottom:6px;color:var(--fg-1)}
-  .step p{color:var(--fg-3);font-size:14.5px}
+  /* stat band */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:6px}
+  .stat{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-xl);padding:24px;text-align:left}
+  .stat .num{font-family:var(--font-display);font-size:clamp(38px,5vw,54px);line-height:1;color:var(--accent);margin-bottom:10px}
+  .stat .lbl{font-size:13.5px;color:var(--fg-3)}
+  .stat .lbl b{color:var(--fg-1);font-weight:600}
 
-  .ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
-  .doc{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-xl);overflow:hidden;
-    box-shadow:inset 0 1px 0 var(--line-1)}
-  .doc .head{padding:15px 18px;border-bottom:1px solid var(--line-2);display:flex;align-items:center;
-    justify-content:space-between;font-family:var(--font-mono);font-size:12.5px;color:var(--fg-3);letter-spacing:.04em}
-  .verdict{font-family:var(--font-mono);font-weight:600;font-size:11.5px;padding:6px 11px;border-radius:var(--radius-pill);
-    letter-spacing:.06em}
-  .v-return{color:#f0c3b3;background:var(--sem-bad-bg);border:1px solid color-mix(in srgb,var(--sem-bad) 50%,transparent)}
-  .v-accept{color:#cfe0ad;background:var(--sem-good-bg);border:1px solid color-mix(in srgb,var(--sem-good) 50%,transparent)}
-  .doc .body{padding:16px 18px;font-size:14px;color:var(--fg-3)}
-  .doc .body b{color:var(--fg-1);font-weight:600}
-  .doc ul{list-style:none;margin:12px 0 0}
-  .doc li{padding:6px 0 6px 22px;position:relative;font-size:13.5px}
-  .doc li::before{position:absolute;left:0;top:5px;font-family:var(--font-mono);font-size:13px}
-  .ret li::before{content:'\21A9';color:var(--sem-bad)}
-  .acc li::before{content:'\2713';color:var(--sem-good)}
+  /* gap positioning */
+  .gap3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .gapcard{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-xl);padding:22px}
+  .gapcard.mid{border-color:var(--accent-line);background:linear-gradient(180deg,var(--bg-surface-2),var(--bg-surface));
+    box-shadow:inset 0 0 60px var(--accent-wash)}
+  .gapcard .k{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--tracking-mono);text-transform:uppercase;margin-bottom:10px;color:var(--fg-4)}
+  .gapcard.mid .k{color:var(--accent)}
+  .gapcard h3{font-size:16px;margin-bottom:8px;color:var(--fg-1)}
+  .gapcard p{font-size:13.5px;color:var(--fg-3)}
 
-  .feature{background:linear-gradient(180deg,var(--bg-surface-2),var(--bg-surface));
-    border:1px solid var(--accent-line);border-radius:var(--radius-2xl);padding:30px;
-    box-shadow:inset 0 0 70px var(--accent-wash)}
-  .feature .big{font-family:var(--font-mono);color:var(--accent);font-size:12px;letter-spacing:var(--tracking-mono);
-    text-transform:uppercase;margin-bottom:12px}
+  /* folder tree */
+  .treewrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:34px;margin-top:26px;align-items:start}
+  .tree{background:var(--bg-inset);border:1px solid var(--line-2);border-radius:var(--radius-xl);padding:22px 20px;
+    font-family:var(--font-mono);font-size:12.5px;line-height:1.85;color:var(--fg-2);overflow-x:auto}
+  .tree .d{color:var(--accent)}
+  .tree .c{color:var(--fg-4)}
+  .tree .root{color:var(--gold-logo)}
+  .treenote h3{font-size:16px;margin:14px 0 6px;color:var(--fg-1)}
+  .treenote h3:first-child{margin-top:0}
+  .treenote p{font-size:14px;color:var(--fg-3);max-width:46ch}
+
+  /* what you get cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .card{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-xl);padding:22px;box-shadow:inset 0 1px 0 var(--line-1)}
+  .card .ic{font-family:var(--font-mono);font-weight:600;font-size:12px;letter-spacing:.06em;color:var(--accent-ink);
+    background:var(--accent);display:inline-block;padding:5px 11px;border-radius:var(--radius-pill);margin-bottom:14px}
+  .card.bad .ic{background:var(--sem-bad);color:#fff}
+  .card.esc .ic{background:var(--fg-3);color:var(--accent-ink)}
+  .card h3{font-size:16px;margin-bottom:7px;color:var(--fg-1)}
+  .card p{font-size:13.5px;color:var(--fg-3)}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;counter-reset:s}
+  .step{background:var(--bg-surface);border:1px solid var(--line-2);border-radius:var(--radius-xl);padding:22px;box-shadow:inset 0 1px 0 var(--line-1)}
+  .step .n{font-family:var(--font-mono);font-weight:600;font-size:13px;color:var(--accent);margin-bottom:12px;letter-spacing:var(--tracking-mono)}
+  .step h3{font-size:15px;margin-bottom:6px;color:var(--fg-1)}
+  .step p{color:var(--fg-3);font-size:14px}
+
+  /* feature */
+  .feature{display:grid;grid-template-columns:1fr 0.8fr;gap:34px;align-items:center;
+    background:linear-gradient(180deg,var(--bg-surface-2),var(--bg-surface));
+    border:1px solid var(--accent-line);border-radius:var(--radius-2xl);padding:32px;box-shadow:inset 0 0 70px var(--accent-wash)}
+  .feature .big{font-family:var(--font-mono);color:var(--accent);font-size:12px;letter-spacing:var(--tracking-mono);text-transform:uppercase;margin-bottom:12px}
   .feature h2{margin-bottom:10px}
+  .feature .lead{font-size:16px}
+  .feature img{width:100%;height:auto;display:block;border-radius:var(--radius-xl);border:1px solid var(--line-2)}
 
-  .real{font-family:var(--font-display);font-weight:400;font-size:clamp(20px,2.8vw,26px);line-height:1.45;
-    max-width:58ch;color:var(--fg-2)}
+  /* guardrails */
+  .never{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:26px}
+  .never li{list-style:none;display:flex;gap:12px;align-items:flex-start;background:var(--bg-surface);border:1px solid var(--line-2);
+    border-radius:var(--radius-lg);padding:16px 18px;font-size:14px;color:var(--fg-2)}
+  .never li::before{content:'\2715';color:var(--sem-bad);font-family:var(--font-mono);font-weight:600;margin-top:1px}
+
+  /* closing */
+  .closing{text-align:center;padding:64px 0}
+  .closing h2{margin-bottom:14px}
+  .closing p{color:var(--fg-3);max-width:52ch;margin:0 auto 26px}
+  .real{font-family:var(--font-display);font-weight:400;font-size:clamp(19px,2.6vw,25px);line-height:1.45;max-width:56ch;color:var(--fg-2)}
   .real b{color:var(--accent);font-weight:600}
 
-  footer{padding:44px 0 72px;border-top:1px solid var(--line-1);color:var(--fg-4);
+  footer{padding:34px 0 70px;border-top:1px solid var(--line-1);color:var(--fg-4);
     font-family:var(--font-mono);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;letter-spacing:.03em}
   footer a{color:var(--accent);text-decoration:none}
-  @media(max-width:780px){.hero{grid-template-columns:1fr;gap:30px}}
-  @media(max-width:680px){.steps{grid-template-columns:1fr}.ba{grid-template-columns:1fr}}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;gap:30px}
+    .feature{grid-template-columns:1fr;gap:22px}
+    .treewrap{grid-template-columns:1fr;gap:22px}
+  }
+  @media(max-width:680px){
+    .stats,.gap3,.cards,.steps,.never{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
+
+<nav>
+  <div class="navwrap">
+    <div class="brand"><img src="assets/marshal-logo.png" alt="Marshal shield logo"> Marshal</div>
+    <a class="nav-cta" href="https://github.com/fastedd27/marshal">View on GitHub</a>
+  </div>
+</nav>
+
 <div class="wrap">
 
   <header>
-    <div class="lockup"><img class="mk" src="assets/marshal-logo.png" alt="Marshal shield logo" width="46" height="46"> Marshal</div>
+    <div class="eyebrow">Production to support, the handoff that decides the next ticket</div>
     <div class="hero">
       <div class="hero-copy">
         <h1>The acceptance gate for site documentation.</h1>
@@ -134,8 +240,42 @@
           <a class="btn primary" href="https://github.com/fastedd27/marshal">View on GitHub</a>
           <a class="btn ghost" href="#proof">See it work</a>
         </div>
+        <div class="trust"><span>Local-first folder</span><span>No rubber-stamps</span><span>Routes back to the tech</span></div>
       </div>
-      <div class="hero-art"><img src="assets/banner.png" alt="Marshal the gatekeeper holding back a charging bull at a gate marked Support Ready Only"></div>
+
+      <div class="gatebox" id="proof" aria-label="Marshal acceptance gate, live demo">
+        <div class="bar"><span class="dots"><i></i><i></i><i></i></span><span>site-doc acceptance gate</span><span class="stage" id="gb-stage">awaiting submission</span></div>
+        <div class="grid">
+          <div class="pane doc">
+            <h4>Site doc <span class="docstate" id="gb-docstate">half-finished</span></h4>
+            <div id="gb-rows">
+              <div class="row"><span class="nm">OvrC attestation</span><span class="vl blank" data-fix="Yes">blank</span><span class="st bad"></span></div>
+              <div class="row"><span class="nm">Remote access (DDNS / VPN)</span><span class="vl blank" data-fix="UniFi / WireGuard">blank</span><span class="st bad"></span></div>
+              <div class="row"><span class="nm">Wi-Fi SSID</span><span class="vl blank" data-fix="Bennett-Home">blank</span><span class="st bad"></span></div>
+              <div class="row"><span class="nm">Cameras / NVR</span><span class="vl blank" data-fix="Uniview NVR301">Other</span><span class="st bad"></span></div>
+              <div class="row"><span class="nm">Control system</span><span class="vl">Crestron Home</span><span class="st"></span></div>
+              <div class="row"><span class="nm">Zone audio</span><span class="vl">Kitchen, Library</span><span class="st"></span></div>
+            </div>
+            <div class="scan" id="gb-scan"></div>
+          </div>
+          <div class="pane">
+            <h4>Marshal</h4>
+            <div class="verdict-wrap"><span class="chip thinking" id="gb-chip">reviewing</span></div>
+            <ul class="punch" id="gb-punch">
+              <li>Remote-access path blank: support locked out</li>
+              <li>OvrC attestation not checked</li>
+              <li>Wi-Fi SSID missing</li>
+              <li>Camera recorder left as "Other"</li>
+            </ul>
+          </div>
+        </div>
+        <div class="gbfoot"><button id="gb-replay">replay</button> &nbsp; auto-loops</div>
+      </div>
+    </div>
+
+    <div class="bullband">
+      <img src="assets/banner.png" alt="Marshal the gatekeeper holding back a charging bull at a gate marked Support Ready Only">
+      <div class="cap">Nothing half-finished gets through the gate. <b>That is the whole job.</b></div>
     </div>
   </header>
 
@@ -143,68 +283,167 @@
     <div class="eyebrow">The problem</div>
     <h2>The doc is the only thing support has to go on.</h2>
     <p class="lead">Every install ends with a site document, then it gets handed to support. Half of them come back over half-filled, and confirming that lands on one overloaded desk. If that person is fixing every doc, they may as well be filling them out. Marshal is the gate that replaces them.</p>
-  </section>
-
-  <section>
-    <div class="eyebrow">How it works</div>
-    <h2>Decide, then route.</h2>
-    <div class="steps">
-      <div class="step"><div class="n">01</div><h3>A tech submits</h3><p>A finished site-doc export goes in: form fields, plus the marked-up equipment photos.</p></div>
-      <div class="step"><div class="n">02</div><h3>Marshal audits</h3><p>Can support get in, and can it service every system present? Front door, completeness, consistency, photo cross-check.</p></div>
-      <div class="step"><div class="n">03</div><h3>It decides</h3><p>Cleared for handoff, or returned to the tech with a precise punch list, back to whoever made the gap.</p></div>
+    <div class="stats">
+      <div class="stat"><div class="num">3</div><div class="lbl"><b>verdicts.</b> Accepted, returned to the tech, or escalated. It always decides.</div></div>
+      <div class="stat"><div class="num">1</div><div class="lbl"><b>gate</b> between the install team and support, so gaps surface before the client does.</div></div>
+      <div class="stat"><div class="num">0</div><div class="lbl"><b>rework</b> on your desk. The punch list goes back to whoever made the gap.</div></div>
     </div>
   </section>
 
-  <section id="proof">
-    <div class="eyebrow">See it work</div>
-    <h2>The gate runs both directions.</h2>
-    <p class="lead">Same site, two versions. It bounces a half-finished doc with a specific list, and accepts a clean one without inventing problems.</p>
-    <div class="ba">
-      <div class="doc">
-        <div class="head"><span>half-finished doc</span><span class="verdict v-return">RETURN TO TECH</span></div>
-        <div class="body ret">
-          <b>Support can't even get in, and three systems are thin.</b>
-          <ul>
-            <li>Remote-access path blank: support is locked out</li>
-            <li>OvrC attestation not checked</li>
-            <li>Network SSID and Crestron reach missing</li>
-            <li>One room's audio doesn't match the zone list</li>
-          </ul>
-        </div>
+  <section>
+    <div class="eyebrow">Where it sits</div>
+    <h2>Between the bottleneck and the rubber stamp.</h2>
+    <div class="gap3">
+      <div class="gapcard">
+        <div class="k">Manual QA</div>
+        <h3>One person re-checking every doc</h3>
+        <p>The judgment is real, but it does not scale and it burns out the one person who can do it.</p>
       </div>
-      <div class="doc">
-        <div class="head"><span>same site, fixed</span><span class="verdict v-accept">ACCEPTED</span></div>
-        <div class="body acc">
-          <b>Every gap resolved. Cleared for handoff.</b>
-          <ul>
-            <li>Front door confirmed, both support tiers</li>
-            <li>Every present system documented to service</li>
-            <li>No contradictions left</li>
-            <li>Advisory rides along: networked audio in play</li>
-          </ul>
-        </div>
+      <div class="gapcard mid">
+        <div class="k">Marshal sits between</div>
+        <h3>Decides, then routes</h3>
+        <p>It applies the same judgment every time, clears what is service-ready, and sends the rest back with a precise punch list.</p>
       </div>
+      <div class="gapcard">
+        <div class="k">Generic templates</div>
+        <h3>A checklist with no judgment</h3>
+        <p>A required-fields form catches blanks. It cannot tell whether what is written can actually service the system.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">The methodology</div>
+    <h2>It is a folder. That is the point.</h2>
+    <p class="lead">No app to install, no model to fine-tune. Marshal is interpretable context: each file does one job, and the only domain-specific layer is one folder you swap. Drop it into any AI assistant and it runs.</p>
+    <div class="treewrap">
+      <div class="tree"><span class="root">marshal/</span>
+├─ <span class="d">brief.md</span>            <span class="c"># the client brief (the client is me)</span>
+├─ <span class="d">identity.md</span>         <span class="c"># who Marshal is, what it owns</span>
+├─ <span class="d">rules.md</span>            <span class="c"># the decision logic. the engine</span>
+├─ <span class="d">examples.md</span>         <span class="c"># worked decisions + the edge cases</span>
+├─ <span class="d">PATTERN.md</span>          <span class="c"># the logic, decoupled. build your own</span>
+├─ <span class="d">background.md</span>       <span class="c"># why it exists, where it goes next</span>
+├─ <span class="d">reference/</span>          <span class="c"># the domain layer (the part you swap)</span>
+│  ├─ support-critical-fields.md
+│  ├─ contradiction-checks.md
+│  ├─ support-advisories.md
+│  └─ <span class="d">_template/</span>       <span class="c"># fill-in kit for your own handoff</span>
+├─ <span class="d">sample-run/</span>         <span class="c"># a full before/after, runnable now</span>
+│  ├─ sample-site-doc.md          <span class="c"># gapped  -> RETURN</span>
+│  └─ sample-site-doc-corrected.md <span class="c"># fixed -> ACCEPTED</span>
+└─ <span class="d">docs/</span>              <span class="c"># this site</span>
+      </div>
+      <div class="treenote">
+        <h3>The engine never changes</h3>
+        <p>rules.md holds the order of operations, the three verdicts, and the escalation rules. You keep it as is.</p>
+        <h3>You swap one folder</h3>
+        <p>reference/ is the only domain layer. Copy _template/, fill in the items, the must-have fields, and your front door. PATTERN.md shows the handoffs it fits, from field-service closeouts to loan underwriting to clinical intake.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">What you get</div>
+    <h2>One of three calls, every time.</h2>
+    <div class="cards">
+      <div class="card"><span class="ic">ACCEPTED</span><h3>Cleared for handoff</h3><p>Every present system is documented to service, with any support advisories attached so tier-1 is not surprised.</p></div>
+      <div class="card bad"><span class="ic">RETURN TO TECH</span><h3>A precise punch list</h3><p>Exactly what is missing, addressed to the submitting tech. The rework goes back to whoever owns the gap.</p></div>
+      <div class="card esc"><span class="ic">ESCALATE</span><h3>The call a tech cannot make</h3><p>The rare judgment that belongs to the production manager, routed up instead of guessed at.</p></div>
     </div>
   </section>
 
   <section>
     <div class="feature">
-      <div class="big">The part nobody else does</div>
-      <h2>It reads the rack photos.</h2>
-      <p class="lead">Techs mark up the rack and closet shots. Marshal reads them, pins the exact gear the form left generic (the processor model behind "Crestron," the named switch behind "UniFi"), and catches anything installed but never written down. The form can be vague. The photo isn't.</p>
+      <div>
+        <div class="big">The part nobody else does</div>
+        <h2>It reads the rack photos.</h2>
+        <p class="lead">Techs mark up the rack and closet shots. Marshal reads them, pins the exact gear the form left generic (the processor model behind "Crestron," the named switch behind "UniFi"), and catches anything installed but never written down. The form can be vague. The photo is not.</p>
+      </div>
+      <img src="assets/banner.png" alt="Marshal at the gate">
     </div>
   </section>
 
   <section>
-    <div class="eyebrow">Why it exists</div>
-    <p class="real">This isn't a demo built for a contest. It's the working logic for a beta heading to a real industry support partner, scoped and stress-tested cold. <b>The contest just set the deadline.</b></p>
+    <div class="eyebrow">Try it in 60 seconds</div>
+    <h2>Drop the folder in, paste a doc, ask.</h2>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Load the folder</h3><p>Drop the marshal folder into a Claude project, or paste its files in as context.</p></div>
+      <div class="step"><div class="n">02</div><h3>Paste the sample</h3><p>Paste <code>sample-run/sample-site-doc.md</code> and ask: "Run Marshal on this doc."</p></div>
+      <div class="step"><div class="n">03</div><h3>Watch it decide</h3><p>You get RETURN with a punch list. Paste the corrected doc and watch it ACCEPT cleanly. The gate runs both directions.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Where the line is</div>
+    <h2>What it will never do.</h2>
+    <ul class="never">
+      <li>Invent a value to fill a blank it cannot confirm.</li>
+      <li>Rubber-stamp a doc to be agreeable.</li>
+      <li>Land the rework on your desk instead of the tech's.</li>
+      <li>Escalate something a tech could have fixed alone.</li>
+    </ul>
+  </section>
+
+  <section class="closing">
+    <p class="real">This is not a demo built for a contest. It is the working logic for a beta heading to a real industry support partner, scoped and stress-tested cold. <b>The contest just set the deadline.</b></p>
+    <div style="margin-top:30px"><a class="btn primary" href="https://github.com/fastedd27/marshal">Get the folder on GitHub</a></div>
   </section>
 
   <footer>
-    <div>Marshal &#10038; built by Charles Weeks</div>
+    <div>Marshal &#10038; built by Charles Weeks &#183; MIT</div>
     <div><a href="https://github.com/fastedd27/marshal">github.com/fastedd27/marshal</a></div>
   </footer>
 
 </div>
+
+<script>
+(function(){
+  var stage=document.getElementById('gb-stage'), docstate=document.getElementById('gb-docstate'),
+      scan=document.getElementById('gb-scan'), chip=document.getElementById('gb-chip'),
+      punch=document.getElementById('gb-punch'), rows=document.getElementById('gb-rows');
+  if(!stage) return;
+  var blanks=[].slice.call(rows.querySelectorAll('.vl.blank')),
+      bdots=[].slice.call(rows.querySelectorAll('.st.bad')),
+      pItems=[].slice.call(punch.children);
+  var timers=[];
+  var at=function(ms,fn){timers.push(setTimeout(fn,ms));};
+  var clear=function(){timers.forEach(clearTimeout);timers=[];};
+  function sweep(){ scan.classList.remove('run'); void scan.offsetWidth; scan.classList.add('run'); }
+  function setChip(cls,txt){ chip.className='chip'; void chip.offsetWidth; chip.classList.add(cls,'show'); chip.textContent=txt; }
+  function thinking(t){ chip.className='chip thinking show'; chip.textContent=t||'reviewing'; }
+  function gapped(){
+    docstate.textContent='half-finished';
+    blanks.forEach(function(b){ b.classList.add('blank'); b.textContent=b.dataset.orig; });
+    bdots.forEach(function(d){d.classList.add('bad');});
+    pItems.forEach(function(li){ li.className=''; li.textContent=li.dataset.ret; });
+    chip.className='chip thinking'; chip.textContent='awaiting';
+  }
+  function fixDoc(){
+    docstate.textContent='resubmitted, fixed';
+    blanks.forEach(function(b){ b.classList.remove('blank'); b.textContent=b.dataset.fix; });
+    bdots.forEach(function(d){d.classList.remove('bad');});
+  }
+  function run(){
+    clear();
+    pItems.forEach(function(li){ li.dataset.ret=li.textContent; });
+    blanks.forEach(function(b){ b.dataset.orig=b.textContent; });
+    gapped();
+    stage.textContent='submitted';
+    at(800,function(){ stage.textContent='reviewing'; thinking(); sweep(); });
+    at(2300,function(){ stage.textContent='returned'; setChip('return','RETURN TO TECH'); });
+    pItems.forEach(function(li,i){ at(2600+i*350,function(){li.classList.add('show');}); });
+    at(5400,function(){ stage.textContent='tech fixes the gaps'; fixDoc(); thinking('re-checking');
+      punch.innerHTML='<li class="ok">Front door confirmed, both tiers</li><li class="ok">Every system documented to service</li><li class="adv">Networked audio in play: heads-up for support</li>';
+    });
+    at(5600,function(){ stage.textContent='reviewing'; sweep(); });
+    at(7000,function(){ stage.textContent='cleared'; setChip('accept','ACCEPTED');
+      [].slice.call(punch.children).forEach(function(li,i){ at(i*300,function(){li.classList.add('show');}); }); });
+    at(11200,function(){ punch.innerHTML='<li>Remote-access path blank: support locked out</li><li>OvrC attestation not checked</li><li>Wi-Fi SSID missing</li><li>Camera recorder left as "Other"</li>'; run(); });
+  }
+  document.getElementById('gb-replay').addEventListener('click',run);
+  run();
+})();
+</script>
 </body>
 </html>
